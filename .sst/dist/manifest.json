@@ -21,7 +21,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::679976505333:role/cdk-hnb659fds-deploy-role-679976505333-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::679976505333:role/cdk-hnb659fds-cfn-exec-role-679976505333-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-679976505333-us-east-1/d62445c1c0db4708e9914979f7fe6a03b87c148555c41645759488d43ae28a08.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-679976505333-us-east-1/4cfbf594f74475627a02ca0261911644ebe477d378194904145d422a2a903a79.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -121,7 +121,7 @@
         "/sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambdaVersion/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "siteServerFunctionServerFunctionEdgeLambdaVersion90FE2F5A408aaae476368d91c195eadaa82f39c5"
+            "data": "siteServerFunctionServerFunctionEdgeLambdaVersion90FE2F5A01218c893c69f6391abec081f5f59166"
           }
         ],
         "/sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/Resource": [
