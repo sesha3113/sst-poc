@@ -1,0 +1,371 @@
+{
+  "version": "31.0.0",
+  "artifacts": {
+    "sesha-kumaran-sst-Site.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "sesha-kumaran-sst-Site.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "sesha-kumaran-sst-Site": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://679976505333/us-east-1",
+      "properties": {
+        "templateFile": "sesha-kumaran-sst-Site.template.json",
+        "tags": {
+          "sst:app": "sst",
+          "sst:stage": "sesha-kumaran"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::679976505333:role/cdk-hnb659fds-deploy-role-679976505333-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::679976505333:role/cdk-hnb659fds-cfn-exec-role-679976505333-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-679976505333-us-east-1/d62445c1c0db4708e9914979f7fe6a03b87c148555c41645759488d43ae28a08.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "sesha-kumaran-sst-Site.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::679976505333:role/cdk-hnb659fds-lookup-role-679976505333-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "sesha-kumaran-sst-Site.assets"
+      ],
+      "metadata": {
+        "/sesha-kumaran-sst-Site": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "sst:app",
+                "Value": "sst"
+              },
+              {
+                "Key": "sst:stage",
+                "Value": "sesha-kumaran"
+              }
+            ]
+          }
+        ],
+        "/sesha-kumaran-sst-Site/CustomResourceHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerServiceRole41AEC181"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/CustomResourceHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerE8FB56BA"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteAwsCliLayer359A0EF0"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3Bucket2B2851F3"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3BucketPolicyBB4DF05F"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Bucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3BucketAutoDeleteObjectsCustomResource3E10A2DE"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerFunction/AssetReplacerPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionAssetReplacerPolicy304BF125"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerFunction/AssetReplacer/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionAssetReplacer9A11D516"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionServerLambdaRoleB83E450B"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionServerLambdaRoleDefaultPolicy9D892E12"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambda/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionServerFunctionEdgeLambda15E6C8AC"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambdaVersion/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionServerFunctionEdgeLambdaVersion90FE2F5A408aaae476368d91c195eadaa82f39c5"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3UploaderServiceRole973F5A0B"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3UploaderServiceRoleDefaultPolicy8BA893D3"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Uploader/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3Uploader2837C218"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Handler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3HandlerServiceRole6D2CC8E3"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Handler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3HandlerServiceRoleDefaultPolicy1BD27252"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Handler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3Handler84D19388"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/S3Deployment/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3DeploymentB932FFDB"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/CloudFrontFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteCloudFrontFunctionE91DD486"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ServerCache/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerCacheDD54ACDF"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteImageFunctionServiceRoleAD5B95E2"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteImageFunctionServiceRoleDefaultPolicy39F33332"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ImageFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteImageFunctionD6B403E9"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ImageFunction/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteImageFunctionLogRetentionD1B5BECE"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ImageFunction/FunctionUrl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteImageFunctionFunctionUrl110B87E7"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/ImageFunction/invoke-function-url": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteImageFunctioninvokefunctionurl443403A1"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/Distribution/Origin1/S3Origin/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteDistributionOrigin1S3Origin34B0A58E"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/Distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteDistribution706F5265"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/CloudFrontInvalidatorPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteCloudFrontInvalidatorPolicyEE18C654"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/CloudFrontInvalidator/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteCloudFrontInvalidator18BEA866"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/site/Parameter_url/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteParameterurl3D1716BC"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaBucketProviderServiceRoleB21F58C0"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaBucketProviderServiceRoleDefaultPolicyA855DE0C"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaBucketProviderCBE2EFD7"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaBucket/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaBucket"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaProviderServiceRoleDABCB773"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaProviderServiceRoleDefaultPolicy0CCD7673"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaProvider/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaProviderA390C7CF"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaVersionProviderServiceRole2CCF7CE4"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaVersionProviderServiceRoleDefaultPolicy70F41469"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EdgeLambdaVersionProviderC834A935"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/SSTStackOutputSiteUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SiteUrl"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/SSTStackOutputSSTMetadata": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSTMetadata"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/sesha-kumaran-sst-Site/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "sesha-kumaran-sst-Site"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

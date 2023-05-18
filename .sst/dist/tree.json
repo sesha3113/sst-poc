@@ -1,0 +1,2886 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "sesha-kumaran-sst-Site": {
+        "id": "sesha-kumaran-sst-Site",
+        "path": "sesha-kumaran-sst-Site",
+        "children": {
+          "CustomResourceHandler": {
+            "id": "CustomResourceHandler",
+            "path": "sesha-kumaran-sst-Site/CustomResourceHandler",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "sesha-kumaran-sst-Site/CustomResourceHandler/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "sesha-kumaran-sst-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/CustomResourceHandler/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.72.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "sesha-kumaran-sst-Site/CustomResourceHandler/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "sesha-kumaran-sst-Site/CustomResourceHandler/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "sesha-kumaran-sst-Site/CustomResourceHandler/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.72.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "sesha-kumaran-sst-Site/CustomResourceHandler/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                      "s3Key": "d75cd5f498a977f452e7f31d85958a05101f8d6ce5bb8b2ecfa7c81e68c21bdb.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CustomResourceHandlerServiceRole41AEC181",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "index.handler",
+                    "memorySize": 1024,
+                    "runtime": "nodejs16.x",
+                    "tags": [
+                      {
+                        "key": "sst:app",
+                        "value": "sst"
+                      },
+                      {
+                        "key": "sst:stage",
+                        "value": "sesha-kumaran"
+                      }
+                    ],
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.72.1"
+            }
+          },
+          "site": {
+            "id": "site",
+            "path": "sesha-kumaran-sst-Site/site",
+            "children": {
+              "AwsCliLayer": {
+                "id": "AwsCliLayer",
+                "path": "sesha-kumaran-sst-Site/site/AwsCliLayer",
+                "children": {
+                  "Code": {
+                    "id": "Code",
+                    "path": "sesha-kumaran-sst-Site/site/AwsCliLayer/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "sesha-kumaran-sst-Site/site/AwsCliLayer/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "sesha-kumaran-sst-Site/site/AwsCliLayer/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/AwsCliLayer/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
+                      "aws:cdk:cloudformation:props": {
+                        "content": {
+                          "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                          "s3Key": "6a28458f7bc3d04e4d2b17f9c3da0709bf456e34b06ea7c96111eecb2fddd054.zip"
+                        },
+                        "description": "/opt/awscli/aws"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnLayerVersion",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+                  "version": "2.72.1"
+                }
+              },
+              "S3Bucket": {
+                "id": "S3Bucket",
+                "path": "sesha-kumaran-sst-Site/site/S3Bucket",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/S3Bucket/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                      "aws:cdk:cloudformation:props": {
+                        "publicAccessBlockConfiguration": {
+                          "blockPublicAcls": true,
+                          "blockPublicPolicy": true,
+                          "ignorePublicAcls": true,
+                          "restrictPublicBuckets": true
+                        },
+                        "tags": [
+                          {
+                            "key": "aws-cdk:auto-delete-objects",
+                            "value": "true"
+                          },
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Policy": {
+                    "id": "Policy",
+                    "path": "sesha-kumaran-sst-Site/site/S3Bucket/Policy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/S3Bucket/Policy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                          "aws:cdk:cloudformation:props": {
+                            "bucket": {
+                              "Ref": "siteS3Bucket2B2851F3"
+                            },
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetBucket*",
+                                    "s3:List*",
+                                    "s3:DeleteObject*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "siteS3Bucket2B2851F3",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "siteS3Bucket2B2851F3",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Action": "s3:GetObject",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "CanonicalUser": {
+                                      "Fn::GetAtt": [
+                                        "siteDistributionOrigin1S3Origin34B0A58E",
+                                        "S3CanonicalUserId"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/*"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AutoDeleteObjectsCustomResource": {
+                    "id": "AutoDeleteObjectsCustomResource",
+                    "path": "sesha-kumaran-sst-Site/site/S3Bucket/AutoDeleteObjectsCustomResource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "sesha-kumaran-sst-Site/site/S3Bucket/AutoDeleteObjectsCustomResource/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.Bucket",
+                  "version": "2.72.1"
+                }
+              },
+              "ServerFunction": {
+                "id": "ServerFunction",
+                "path": "sesha-kumaran-sst-Site/site/ServerFunction",
+                "children": {
+                  "FunctionAsset": {
+                    "id": "FunctionAsset",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/FunctionAsset",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/FunctionAsset/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/FunctionAsset/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetReplacerPolicy": {
+                    "id": "AssetReplacerPolicy",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/AssetReplacerPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/AssetReplacerPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetObject",
+                                    "s3:PutObject"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":s3:::cdk-hnb659fds-assets-679976505333-us-east-1/*"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "siteServerFunctionAssetReplacerPolicy304BF125",
+                            "roles": [
+                              {
+                                "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetReplacer": {
+                    "id": "AssetReplacer",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/AssetReplacer",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/AssetReplacer/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "EdgeLambdaPolicy": {
+                    "id": "EdgeLambdaPolicy",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/EdgeLambdaPolicy",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "ServerLambdaRole": {
+                    "id": "ServerLambdaRole",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole",
+                    "children": {
+                      "ImportServerLambdaRole": {
+                        "id": "ImportServerLambdaRole",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole/ImportServerLambdaRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                },
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "edgelambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "sst"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "sesha-kumaran"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerLambdaRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*",
+                                        "s3:DeleteObject*",
+                                        "s3:PutObject",
+                                        "s3:PutObjectLegalHold",
+                                        "s3:PutObjectRetention",
+                                        "s3:PutObjectTagging",
+                                        "s3:PutObjectVersionTagging",
+                                        "s3:Abort*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Bucket2B2851F3",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "siteServerFunctionServerLambdaRoleDefaultPolicy9D892E12",
+                                "roles": [
+                                  {
+                                    "Ref": "siteServerFunctionServerLambdaRoleB83E450B"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.72.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "ServerFunctionEdgeLambda": {
+                    "id": "ServerFunctionEdgeLambda",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambda",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambda/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "ServerFunctionEdgeLambdaVersion": {
+                    "id": "ServerFunctionEdgeLambdaVersion",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambdaVersion",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionEdgeLambdaVersion/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "ServerFunctionFunctionVersionFunction": {
+                    "id": "ServerFunctionFunctionVersionFunction",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionFunctionVersionFunction",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.FunctionBase",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "ServerFunctionFunctionVersion": {
+                    "id": "ServerFunctionFunctionVersion",
+                    "path": "sesha-kumaran-sst-Site/site/ServerFunction/ServerFunctionFunctionVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.QualifiedFunctionBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.1.156"
+                }
+              },
+              "Asset0": {
+                "id": "Asset0",
+                "path": "sesha-kumaran-sst-Site/site/Asset0",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "sesha-kumaran-sst-Site/site/Asset0/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "sesha-kumaran-sst-Site/site/Asset0/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.72.1"
+                }
+              },
+              "S3Uploader": {
+                "id": "S3Uploader",
+                "path": "sesha-kumaran-sst-Site/site/S3Uploader",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "sst"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "sesha-kumaran"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "sesha-kumaran-sst-Site/site/S3Uploader/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*",
+                                        "s3:DeleteObject*",
+                                        "s3:PutObject",
+                                        "s3:PutObjectLegalHold",
+                                        "s3:PutObjectRetention",
+                                        "s3:PutObjectTagging",
+                                        "s3:PutObjectVersionTagging",
+                                        "s3:Abort*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Bucket2B2851F3",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":s3:::cdk-hnb659fds-assets-679976505333-us-east-1"
+                                            ]
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":s3:::cdk-hnb659fds-assets-679976505333-us-east-1/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "siteS3UploaderServiceRoleDefaultPolicy8BA893D3",
+                                "roles": [
+                                  {
+                                    "Ref": "siteS3UploaderServiceRole973F5A0B"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.72.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "sesha-kumaran-sst-Site/site/S3Uploader/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "sesha-kumaran-sst-Site/site/S3Uploader/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "sesha-kumaran-sst-Site/site/S3Uploader/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/S3Uploader/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                          "s3Key": "5314dd0b83a9c16d227872e4b881e96d2361ae01b02d8bdc3b24c30fd31aa758.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "siteS3UploaderServiceRole973F5A0B",
+                            "Arn"
+                          ]
+                        },
+                        "handler": "s3-upload.handler",
+                        "layers": [
+                          {
+                            "Ref": "siteAwsCliLayer359A0EF0"
+                          }
+                        ],
+                        "memorySize": 1024,
+                        "runtime": "python3.7",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ],
+                        "timeout": 900
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.72.1"
+                }
+              },
+              "S3Handler": {
+                "id": "S3Handler",
+                "path": "sesha-kumaran-sst-Site/site/S3Handler",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "sesha-kumaran-sst-Site/site/S3Handler/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "sesha-kumaran-sst-Site/site/S3Handler/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/S3Handler/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "sst"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "sesha-kumaran"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "sesha-kumaran-sst-Site/site/S3Handler/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "sesha-kumaran-sst-Site/site/S3Handler/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*",
+                                        "s3:DeleteObject*",
+                                        "s3:PutObject",
+                                        "s3:PutObjectLegalHold",
+                                        "s3:PutObjectRetention",
+                                        "s3:PutObjectTagging",
+                                        "s3:PutObjectVersionTagging",
+                                        "s3:Abort*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Bucket2B2851F3",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": "lambda:InvokeFunction",
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Uploader2837C218",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Uploader2837C218",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              ":*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "siteS3HandlerServiceRoleDefaultPolicy1BD27252",
+                                "roles": [
+                                  {
+                                    "Ref": "siteS3HandlerServiceRole6D2CC8E3"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.72.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "sesha-kumaran-sst-Site/site/S3Handler/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "sesha-kumaran-sst-Site/site/S3Handler/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "sesha-kumaran-sst-Site/site/S3Handler/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/S3Handler/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                          "s3Key": "5314dd0b83a9c16d227872e4b881e96d2361ae01b02d8bdc3b24c30fd31aa758.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "siteS3HandlerServiceRole6D2CC8E3",
+                            "Arn"
+                          ]
+                        },
+                        "environment": {
+                          "variables": {
+                            "UPLOADER_FUNCTION_NAME": {
+                              "Ref": "siteS3Uploader2837C218"
+                            }
+                          }
+                        },
+                        "handler": "s3-handler.handler",
+                        "layers": [
+                          {
+                            "Ref": "siteAwsCliLayer359A0EF0"
+                          }
+                        ],
+                        "memorySize": 1024,
+                        "runtime": "python3.7",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ],
+                        "timeout": 900
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.72.1"
+                }
+              },
+              "S3Deployment": {
+                "id": "S3Deployment",
+                "path": "sesha-kumaran-sst-Site/site/S3Deployment",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "sesha-kumaran-sst-Site/site/S3Deployment/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.72.1"
+                }
+              },
+              "CloudFrontFunction": {
+                "id": "CloudFrontFunction",
+                "path": "sesha-kumaran-sst-Site/site/CloudFrontFunction",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/CloudFrontFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "functionCode": "\nfunction handler(event) {\n  var request = event.request;\n  request.headers[\"x-forwarded-host\"] = request.headers.host;\n  \n  return request;\n}",
+                        "functionConfig": {
+                          "comment": "us-east-1seshakumaransstSitesiteCloudFrontFunction0DB39AF6",
+                          "runtime": "cloudfront-js-1.0"
+                        },
+                        "name": "us-east-1seshakumaransstSitesiteCloudFrontFunction0DB39AF6",
+                        "autoPublish": true
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnFunction",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.Function",
+                  "version": "2.72.1"
+                }
+              },
+              "ServerCache": {
+                "id": "ServerCache",
+                "path": "sesha-kumaran-sst-Site/site/ServerCache",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/ServerCache/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::CachePolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "cachePolicyConfig": {
+                          "name": "seshakumaransstSitesiteServerCache94FC26FE-us-east-1",
+                          "comment": "SST server response cache policy",
+                          "minTtl": 0,
+                          "maxTtl": 31536000,
+                          "defaultTtl": 0,
+                          "parametersInCacheKeyAndForwardedToOrigin": {
+                            "cookiesConfig": {
+                              "cookieBehavior": "all"
+                            },
+                            "headersConfig": {
+                              "headerBehavior": "whitelist",
+                              "headers": [
+                                "accept",
+                                "rsc",
+                                "next-router-prefetch",
+                                "next-router-state-tree"
+                              ]
+                            },
+                            "enableAcceptEncodingGzip": true,
+                            "enableAcceptEncodingBrotli": true,
+                            "queryStringsConfig": {
+                              "queryStringBehavior": "all"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnCachePolicy",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.CachePolicy",
+                  "version": "2.72.1"
+                }
+              },
+              "ServerOriginRequestPolicy": {
+                "id": "ServerOriginRequestPolicy",
+                "path": "sesha-kumaran-sst-Site/site/ServerOriginRequestPolicy",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.72.1"
+                }
+              },
+              "ImageFunction": {
+                "id": "ImageFunction",
+                "path": "sesha-kumaran-sst-Site/site/ImageFunction",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "sst"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "sesha-kumaran"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "sesha-kumaran-sst-Site/site/ImageFunction/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "s3:GetObject",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "siteS3Bucket2B2851F3",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/*"
+                                          ]
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "siteImageFunctionServiceRoleDefaultPolicy39F33332",
+                                "roles": [
+                                  {
+                                    "Ref": "siteImageFunctionServiceRoleAD5B95E2"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.72.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.72.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                          "s3Key": "e475f3550674221a57427a93b6baa652bc4a5c2258e4e6efc0268befa71c40b5.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "siteImageFunctionServiceRoleAD5B95E2",
+                            "Arn"
+                          ]
+                        },
+                        "architectures": [
+                          "arm64"
+                        ],
+                        "description": "Image optimization handler for Next.js",
+                        "environment": {
+                          "variables": {
+                            "BUCKET_NAME": {
+                              "Ref": "siteS3Bucket2B2851F3"
+                            }
+                          }
+                        },
+                        "handler": "index.handler",
+                        "memorySize": 1536,
+                        "runtime": "nodejs18.x",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ],
+                        "timeout": 25
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "LogRetention": {
+                    "id": "LogRetention",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/LogRetention",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/LogRetention/Resource",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "LogGroup": {
+                    "id": "LogGroup",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/LogGroup",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "FunctionUrl": {
+                    "id": "FunctionUrl",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/FunctionUrl",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/site/ImageFunction/FunctionUrl/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Url",
+                          "aws:cdk:cloudformation:props": {
+                            "authType": "NONE",
+                            "targetFunctionArn": {
+                              "Fn::GetAtt": [
+                                "siteImageFunctionD6B403E9",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnUrl",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.FunctionUrl",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "invoke-function-url": {
+                    "id": "invoke-function-url",
+                    "path": "sesha-kumaran-sst-Site/site/ImageFunction/invoke-function-url",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                      "aws:cdk:cloudformation:props": {
+                        "action": "lambda:InvokeFunctionUrl",
+                        "functionName": {
+                          "Fn::GetAtt": [
+                            "siteImageFunctionD6B403E9",
+                            "Arn"
+                          ]
+                        },
+                        "principal": "*",
+                        "functionUrlAuthType": "NONE"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.72.1"
+                }
+              },
+              "Distribution": {
+                "id": "Distribution",
+                "path": "sesha-kumaran-sst-Site/site/Distribution",
+                "children": {
+                  "Origin1": {
+                    "id": "Origin1",
+                    "path": "sesha-kumaran-sst-Site/site/Distribution/Origin1",
+                    "children": {
+                      "S3Origin": {
+                        "id": "S3Origin",
+                        "path": "sesha-kumaran-sst-Site/site/Distribution/Origin1/S3Origin",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "sesha-kumaran-sst-Site/site/Distribution/Origin1/S3Origin/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+                              "aws:cdk:cloudformation:props": {
+                                "cloudFrontOriginAccessIdentityConfig": {
+                                  "comment": "Identity for seshakumaransstSitesiteDistributionOrigin1873475A2"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+                              "version": "2.72.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.1.156"
+                    }
+                  },
+                  "Origin2": {
+                    "id": "Origin2",
+                    "path": "sesha-kumaran-sst-Site/site/Distribution/Origin2",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.1.156"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/Distribution/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
+                      "aws:cdk:cloudformation:props": {
+                        "distributionConfig": {
+                          "enabled": true,
+                          "origins": [
+                            {
+                              "domainName": {
+                                "Fn::GetAtt": [
+                                  "siteS3Bucket2B2851F3",
+                                  "RegionalDomainName"
+                                ]
+                              },
+                              "id": "seshakumaransstSitesiteDistributionOrigin1873475A2",
+                              "s3OriginConfig": {
+                                "originAccessIdentity": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "origin-access-identity/cloudfront/",
+                                      {
+                                        "Ref": "siteDistributionOrigin1S3Origin34B0A58E"
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "domainName": {
+                                "Fn::Select": [
+                                  0,
+                                  {
+                                    "Fn::Split": [
+                                      "/",
+                                      {
+                                        "Fn::Select": [
+                                          1,
+                                          {
+                                            "Fn::Split": [
+                                              "//",
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteImageFunctionFunctionUrl110B87E7",
+                                                  "FunctionUrl"
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              "id": "seshakumaransstSitesiteDistributionOrigin210E04D12",
+                              "customOriginConfig": {
+                                "originSslProtocols": [
+                                  "TLSv1.2"
+                                ],
+                                "originProtocolPolicy": "https-only"
+                              }
+                            }
+                          ],
+                          "defaultCacheBehavior": {
+                            "pathPattern": "*",
+                            "targetOriginId": "seshakumaransstSitesiteDistributionOrigin1873475A2",
+                            "allowedMethods": [
+                              "GET",
+                              "HEAD",
+                              "OPTIONS",
+                              "PUT",
+                              "PATCH",
+                              "POST",
+                              "DELETE"
+                            ],
+                            "cachedMethods": [
+                              "GET",
+                              "HEAD",
+                              "OPTIONS"
+                            ],
+                            "cachePolicyId": {
+                              "Ref": "siteServerCacheDD54ACDF"
+                            },
+                            "compress": true,
+                            "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                            "viewerProtocolPolicy": "redirect-to-https",
+                            "functionAssociations": [
+                              {
+                                "functionArn": {
+                                  "Fn::GetAtt": [
+                                    "siteCloudFrontFunctionE91DD486",
+                                    "FunctionARN"
+                                  ]
+                                },
+                                "eventType": "viewer-request"
+                              }
+                            ],
+                            "lambdaFunctionAssociations": [
+                              {
+                                "lambdaFunctionArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "siteServerFunctionServerFunctionEdgeLambda15E6C8AC",
+                                          "FunctionArn"
+                                        ]
+                                      },
+                                      ":",
+                                      {
+                                        "Fn::GetAtt": [
+                                          "siteServerFunctionServerFunctionEdgeLambdaVersion90FE2F5A408aaae476368d91c195eadaa82f39c5",
+                                          "Version"
+                                        ]
+                                      }
+                                    ]
+                                  ]
+                                },
+                                "eventType": "origin-request",
+                                "includeBody": true
+                              }
+                            ]
+                          },
+                          "aliases": [],
+                          "cacheBehaviors": [
+                            {
+                              "pathPattern": "api/*",
+                              "targetOriginId": "seshakumaransstSitesiteDistributionOrigin1873475A2",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PUT",
+                                "PATCH",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": {
+                                "Ref": "siteServerCacheDD54ACDF"
+                              },
+                              "compress": true,
+                              "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                              "viewerProtocolPolicy": "redirect-to-https",
+                              "functionAssociations": [
+                                {
+                                  "functionArn": {
+                                    "Fn::GetAtt": [
+                                      "siteCloudFrontFunctionE91DD486",
+                                      "FunctionARN"
+                                    ]
+                                  },
+                                  "eventType": "viewer-request"
+                                }
+                              ],
+                              "lambdaFunctionAssociations": [
+                                {
+                                  "lambdaFunctionArn": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteServerFunctionServerFunctionEdgeLambda15E6C8AC",
+                                            "FunctionArn"
+                                          ]
+                                        },
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteServerFunctionServerFunctionEdgeLambdaVersion90FE2F5A408aaae476368d91c195eadaa82f39c5",
+                                            "Version"
+                                          ]
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  "eventType": "origin-request",
+                                  "includeBody": true
+                                }
+                              ]
+                            },
+                            {
+                              "pathPattern": "_next/data/*",
+                              "targetOriginId": "seshakumaransstSitesiteDistributionOrigin1873475A2",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PUT",
+                                "PATCH",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": {
+                                "Ref": "siteServerCacheDD54ACDF"
+                              },
+                              "compress": true,
+                              "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                              "viewerProtocolPolicy": "redirect-to-https",
+                              "functionAssociations": [
+                                {
+                                  "functionArn": {
+                                    "Fn::GetAtt": [
+                                      "siteCloudFrontFunctionE91DD486",
+                                      "FunctionARN"
+                                    ]
+                                  },
+                                  "eventType": "viewer-request"
+                                }
+                              ],
+                              "lambdaFunctionAssociations": [
+                                {
+                                  "lambdaFunctionArn": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteServerFunctionServerFunctionEdgeLambda15E6C8AC",
+                                            "FunctionArn"
+                                          ]
+                                        },
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteServerFunctionServerFunctionEdgeLambdaVersion90FE2F5A408aaae476368d91c195eadaa82f39c5",
+                                            "Version"
+                                          ]
+                                        }
+                                      ]
+                                    ]
+                                  },
+                                  "eventType": "origin-request",
+                                  "includeBody": true
+                                }
+                              ]
+                            },
+                            {
+                              "pathPattern": "_next/image*",
+                              "targetOriginId": "seshakumaransstSitesiteDistributionOrigin210E04D12",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PUT",
+                                "PATCH",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": {
+                                "Ref": "siteServerCacheDD54ACDF"
+                              },
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "_next/*",
+                              "targetOriginId": "seshakumaransstSitesiteDistributionOrigin1873475A2",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            }
+                          ],
+                          "defaultRootObject": "",
+                          "httpVersion": "http2",
+                          "ipv6Enabled": true
+                        },
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnDistribution",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.Distribution",
+                  "version": "2.72.1"
+                }
+              },
+              "CloudFrontInvalidatorPolicy": {
+                "id": "CloudFrontInvalidatorPolicy",
+                "path": "sesha-kumaran-sst-Site/site/CloudFrontInvalidatorPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/CloudFrontInvalidatorPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "cloudfront:GetInvalidation",
+                                "cloudfront:CreateInvalidation"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":cloudfront::679976505333:distribution/",
+                                    {
+                                      "Ref": "siteDistribution706F5265"
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "siteCloudFrontInvalidatorPolicyEE18C654",
+                        "roles": [
+                          {
+                            "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.72.1"
+                }
+              },
+              "CloudFrontInvalidator": {
+                "id": "CloudFrontInvalidator",
+                "path": "sesha-kumaran-sst-Site/site/CloudFrontInvalidator",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "sesha-kumaran-sst-Site/site/CloudFrontInvalidator/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.72.1"
+                }
+              },
+              "Parameter_url": {
+                "id": "Parameter_url",
+                "path": "sesha-kumaran-sst-Site/site/Parameter_url",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/site/Parameter_url/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
+                      "aws:cdk:cloudformation:props": {
+                        "type": "String",
+                        "value": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "https://",
+                              {
+                                "Fn::GetAtt": [
+                                  "siteDistribution706F5265",
+                                  "DomainName"
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        "name": "/sst/sst/sesha-kumaran/NextjsSite/site/url",
+                        "tags": {
+                          "sst:app": "sst",
+                          "sst:stage": "sesha-kumaran"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ssm.CfnParameter",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ssm.StringParameter",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.156"
+            }
+          },
+          "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
+            "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "path": "sesha-kumaran-sst-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "children": {
+              "Staging": {
+                "id": "Staging",
+                "path": "sesha-kumaran-sst-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.AssetStaging",
+                  "version": "2.72.1"
+                }
+              },
+              "Role": {
+                "id": "Role",
+                "path": "sesha-kumaran-sst-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.72.1"
+                }
+              },
+              "Handler": {
+                "id": "Handler",
+                "path": "sesha-kumaran-sst-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CustomResourceProvider",
+              "version": "2.72.1"
+            }
+          },
+          "EdgeLambdaBucketProvider": {
+            "id": "EdgeLambdaBucketProvider",
+            "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "s3:*",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "EdgeLambdaBucketProviderServiceRoleDefaultPolicyA855DE0C",
+                            "roles": [
+                              {
+                                "Ref": "EdgeLambdaBucketProviderServiceRoleB21F58C0"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.72.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.72.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaBucketProvider/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                      "s3Key": "d700750c608dfaaae7c8feffb66e91e77d0a9fe1ff25f7c3ba7ecdc26cdecfdd.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "EdgeLambdaBucketProviderServiceRoleB21F58C0",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "s3-bucket.handler",
+                    "memorySize": 1024,
+                    "runtime": "nodejs16.x",
+                    "tags": [
+                      {
+                        "key": "sst:app",
+                        "value": "sst"
+                      },
+                      {
+                        "key": "sst:stage",
+                        "value": "sesha-kumaran"
+                      }
+                    ],
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.72.1"
+            }
+          },
+          "EdgeLambdaBucket": {
+            "id": "EdgeLambdaBucket",
+            "path": "sesha-kumaran-sst-Site/EdgeLambdaBucket",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaBucket/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CustomResource",
+              "version": "2.72.1"
+            }
+          },
+          "EdgeLambdaProvider": {
+            "id": "EdgeLambdaProvider",
+            "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "lambda:*",
+                                    "s3:*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "iam:PassRole",
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::GetAtt": [
+                                      "siteServerFunctionServerLambdaRoleB83E450B",
+                                      "Arn"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "EdgeLambdaProviderServiceRoleDefaultPolicy0CCD7673",
+                            "roles": [
+                              {
+                                "Ref": "EdgeLambdaProviderServiceRoleDABCB773"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.72.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.72.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaProvider/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                      "s3Key": "d700750c608dfaaae7c8feffb66e91e77d0a9fe1ff25f7c3ba7ecdc26cdecfdd.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "EdgeLambdaProviderServiceRoleDABCB773",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "edge-lambda.handler",
+                    "memorySize": 1024,
+                    "runtime": "nodejs16.x",
+                    "tags": [
+                      {
+                        "key": "sst:app",
+                        "value": "sst"
+                      },
+                      {
+                        "key": "sst:stage",
+                        "value": "sesha-kumaran"
+                      }
+                    ],
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.72.1"
+            }
+          },
+          "EdgeLambdaVersionProvider": {
+            "id": "EdgeLambdaVersionProvider",
+            "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "lambda:*",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "EdgeLambdaVersionProviderServiceRoleDefaultPolicy70F41469",
+                            "roles": [
+                              {
+                                "Ref": "EdgeLambdaVersionProviderServiceRole2CCF7CE4"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.72.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.72.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "sesha-kumaran-sst-Site/EdgeLambdaVersionProvider/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-679976505333-us-east-1",
+                      "s3Key": "d700750c608dfaaae7c8feffb66e91e77d0a9fe1ff25f7c3ba7ecdc26cdecfdd.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "EdgeLambdaVersionProviderServiceRole2CCF7CE4",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "edge-lambda-version.handler",
+                    "memorySize": 1024,
+                    "runtime": "nodejs16.x",
+                    "tags": [
+                      {
+                        "key": "sst:app",
+                        "value": "sst"
+                      },
+                      {
+                        "key": "sst:stage",
+                        "value": "sesha-kumaran"
+                      }
+                    ],
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.72.1"
+            }
+          },
+          "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
+            "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.72.1"
+                }
+              },
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "sst"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "sesha-kumaran"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.72.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "logs:PutRetentionPolicy",
+                                    "logs:DeleteRetentionPolicy"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+                            "roles": [
+                              {
+                                "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.72.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.72.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.72.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "sesha-kumaran-sst-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.72.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.156"
+            }
+          },
+          "SSTStackOutputSiteUrl": {
+            "id": "SSTStackOutputSiteUrl",
+            "path": "sesha-kumaran-sst-Site/SSTStackOutputSiteUrl",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.72.1"
+            }
+          },
+          "SSTStackOutputSSTMetadata": {
+            "id": "SSTStackOutputSSTMetadata",
+            "path": "sesha-kumaran-sst-Site/SSTStackOutputSSTMetadata",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.72.1"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "sesha-kumaran-sst-Site/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.72.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "sesha-kumaran-sst-Site/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.72.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.72.1"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.156"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.72.1"
+    }
+  }
+}
